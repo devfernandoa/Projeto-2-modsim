@@ -1,23 +1,26 @@
-// Define the analog pin, the LM35's Vout pin is connected to
+// Define o pino que o Vout do LM35 está conectado
 #define sensorPin A0
 
 void setup() {
-  // Begin serial communication at 9600 baud rate
+  // Inicia a comunicação a uma taxa serial de 9600
   Serial.begin(9600);
 }
 
 void loop() {
-  // Get the voltage reading from the LM35
+  // Pega a voltagem do LM35
   int reading = analogRead(sensorPin);
 
-  // Convert that reading into voltage
+  // Converte a leitura em voltagem
   float voltage = reading * (5.0 / 1024.0);
 
-  // Convert the voltage into the temperature in Celsius
+  // Converte a voltagem em celsius
   float temperatureC = voltage * 100;
 
-  // Print the temperature in Celsius
+  // Imprime a temperatura
   Serial.print(temperatureC);
+    
+  // Nova linha
+  Serial.print('\n')
 
-  delay(5000); // 1000 units for each second to delay
+  delay(5000); // 1000 unidades para cada segundo
 }
