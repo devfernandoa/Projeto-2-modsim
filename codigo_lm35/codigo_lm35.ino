@@ -11,16 +11,16 @@ void loop() {
   int reading = analogRead(sensorPin);
 
   // Converte a leitura em voltagem
-  float voltage = reading * (5.0 / 1024.0);
+  float voltage = reading * (5.0 /  1023.0);
 
   // Converte a voltagem em celsius
   float temperatureC = voltage * 100;
 
   // Imprime a temperatura
-  Serial.print(temperatureC);
+  Serial.print(voltage, 3);
     
   // Nova linha
   Serial.print('\n');
 
-  delay(5000); // 1000 unidades para cada segundo
+  delay(1000); // 1000 unidades para cada segundo
 }
